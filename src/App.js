@@ -14,9 +14,9 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
       <Navbar /> 
       {/* whats the difference between route v switch  */}
       <Routes>
-        <Route to="/" element={ <HomePage /> } />
-        <Route to="/signup" element={ <Signup /> } />
-        <Route to="/login" element={ <Login /> } />
+        <Route path="/" element={ <HomePage /> } />
+        <Route path="/signup" element={ <Signup /> } />
+        <Route path="/login" element={ <Login /> } />
       </Routes>
     </Router> 
   );

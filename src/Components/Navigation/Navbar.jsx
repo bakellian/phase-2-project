@@ -1,6 +1,8 @@
 import React from 'react'
 
 //nav bar imports:
+import { Link } from 'react-router-dom';
+//things like these need to be in curly braces because they are being exported by their actual name / curly brackets = export / non curly brackets = export default 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -28,9 +30,10 @@ const NavBar = () => {
           <Typography variant="h6" className={classes.title}>
             Project Name 
           </Typography>
-          <Button color="inherit">Home</Button>
-          <Button color="inherit">Sign Up</Button>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" to='/' component={ Link }>Home</Button> 
+          {/* give it s component - say you want it to be a link and say here go to this route */ }{/* https://v4.mui.com/components/buttons/#third-party-routing-library */}
+          <Button color="inherit" to='/signup' component={ Link }>Sign Up</Button>
+          <Button color="inherit" to='/login' component={ Link }>Login</Button>
         </Toolbar>
       </AppBar>
     </div>
