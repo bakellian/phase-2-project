@@ -12,9 +12,6 @@ const useStyles = makeStyles((theme) => ({ //when we call makeStyles it returns 
     root: {
       flexGrow: 1,
     },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
     title: {
       flexGrow: 1,
     },
@@ -31,6 +28,8 @@ const NavBar = () => {
           <Typography variant="h6" className={classes.title}>
             Project Name 
           </Typography>
+          <Button color="inherit">Home</Button>
+          <Button color="inherit">Sign Up</Button>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

@@ -1,13 +1,24 @@
 import Navbar from './Components/Navigation/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom' //alias to use "router" instead of "BrowserRouter"
+import HomePage from './Components/Static /HomePage';
+import Signup from './Components/Auth/Signup';
+import Login from './Components/Auth/Login';
+//using Routes instead of switch 
 
 const App = () => { //changed to arrow function to keep it up to date with ES6 best practices
   
 
   return (
-    <div>
-      <Navbar />
-      <h1>Hello!</h1>
-    </div>
+    <Router>
+      {/* Navbar is inside router so we will be able to use links */}
+      <Navbar /> 
+      {/* whats the difference between route v switch  */}
+      <Routes>
+        <Route to="/" element={ <HomePage /> } />
+        <Route to="/signup" element={ <Signup /> } />
+        <Route to="/login" element={ <Login /> } />
+      </Routes>
+    </Router> 
   );
 }
 
