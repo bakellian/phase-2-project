@@ -21,4 +21,12 @@
 * Navigation
 * Create a pet form 
 * Pet List - general pet information (name + short description)
-* Pet card - more information about pet (name, age, longer description)
+* Pet card - more information about pet (name, age, longer description) 
+
+## Routes 
+* /home - homepage component
+* /signup - signup component 
+* /login - login component 
+* /pets/new - new pet form component 
+* /pets - pet list 
+* /pet/id - individual pet card 
