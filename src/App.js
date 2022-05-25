@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom' //alia
 import HomePage from './Components/Static /HomePage';
 import Signup from './Components/Auth/Signup';
 import Login from './Components/Auth/Login';
+import PetList from './Components/Pets/PetList';
+import PetForm from './Components/Pets/PetForm';
 //using Routes instead of switch 
 
 const App = () => { //changed to arrow function to keep it up to date with ES6 best practices
@@ -17,6 +19,8 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
         <Route path="/" element={ <HomePage /> } />
         <Route path="/signup" element={ <Signup /> } />
         <Route path="/login" element={ <Login /> } />
+        <Route path="/petlist" element={ <PetList /> } />
+        <Route path="/petform" element={ <PetForm /> } />
       </Routes>
     </Router> 
   );

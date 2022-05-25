@@ -35,6 +35,8 @@ const NavBar = () => {
           {/* give it s component - say you want it to be a link and say here go to this route */ }{/* https://v4.mui.com/components/buttons/#third-party-routing-library */}
           <Button color="inherit" to='/signup' component={ Link }>Sign Up</Button>
           <Button color="inherit" to='/login' component={ Link }>Login</Button>
+          <Button color="inherit" to='/petlist' component={ Link }>Your Pets</Button>
+          <Button color="inherit" to='/petform' component={ Link }>Create a Pet</Button>
         </Toolbar>
       </AppBar>
     </div>
