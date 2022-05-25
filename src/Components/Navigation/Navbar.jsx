@@ -3,6 +3,7 @@ import React from 'react'
 //nav bar imports:
 import { Link } from 'react-router-dom';
 //things like these need to be in curly braces because they are being exported by their actual name / curly brackets = export / non curly brackets = export default 
+//link helps us naviage without a refresh - keeps it a single page application - it's just manipulating the DOM. 
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';

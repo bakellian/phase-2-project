@@ -1,6 +1,5 @@
-# Title of Project 
-project overview section 
-what is the project 
+# Pet Creator 
+On this app users are able to create pets for a collection. Users can Signup to start creating pets and Login to see the pets they have already created. Users can remove pets they no longer want from their list of pets and view more detailed cards about their pets. 
 
 ### Requirements 
 * uses node v17.3.0
