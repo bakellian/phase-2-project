@@ -37,6 +37,8 @@ const NavBar = () => {
           <Button color="inherit" to='/login' component={ Link }>Login</Button>
           <Button color="inherit" to='/petlist' component={ Link }>Your Pets</Button>
           <Button color="inherit" to='/petform' component={ Link }>Create a Pet</Button>
+          <Button color="inherit">Logout</Button> 
+          {/* logout won't actually link anywhere */}
         </Toolbar>
       </AppBar>
     </div>

@@ -30,3 +30,21 @@
 * /pets/new - new pet form component 
 * /pets - pet list 
 * /pet/id - individual pet card 
+
+## JSON Data 
+{
+    "users": [
+        {
+            "id": 1, 
+            "username": Bridget 
+        }
+    ],
+    "pets": [
+        {
+            "id": 1, 
+            "user-id": 1
+            "name": Lily 
+            "description": A cute dog whose farts smell terrible. 
+        }
+    ]
+}
