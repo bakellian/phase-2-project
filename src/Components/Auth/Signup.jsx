@@ -1,6 +1,8 @@
 import React from 'react'
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -9,32 +11,48 @@ const useStyles = makeStyles((theme) => ({
         width: '25ch',
       },
     },
-  }));
+}));
 
 const Signup = () => {
 
     const classes = useStyles();
 
-    const [userName, setUserName] = React.useState('');
+    const [userName, setUserName] = useState('');
     
-    const handleChange = (event) => {
-    setUserName(event.target.value);
+    const handleChange = (e) => {
+        setUserName(e.target.value);
+        console.log(userName)
+    };
 
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('submitted')
+        //we want to send out a fetch
+        fetch('http://localhost:3001/users', {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ userName })
+            //send an object of username to our server - automatically gives it an ID
+        })
+    }
     
   return (
     <div>
         <h1>Sign Up</h1>
-        <form className={classes.root} noValidate autoComplete="off">
+        <form className={classes.root} >
         <TextField
           id="filled-name"
           label="Username"
           value={userName}
           onChange={handleChange}
+        //   anytime we make an input change its going to use the handleCHange function
           variant="filled"
         />
-         <input type="submit" value="Sign Up" />
     </form>
+    <Button variant="contained" onClick={handleSubmit}>Sign up</Button>
     </div>
 
   )
