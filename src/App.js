@@ -6,6 +6,7 @@ import Signup from './Components/Auth/Signup';
 import Login from './Components/Auth/Login';
 import PetList from './Components/Pets/PetList';
 import PetForm from './Components/Pets/PetForm';
+import { useState } from 'react';
 //using Routes instead of switch 
 
 const App = () => { //changed to arrow function to keep it up to date with ES6 best practices
