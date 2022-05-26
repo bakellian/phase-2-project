@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 //after user signs up navigate them to their pet list. 
 // instead of using useHistory hook (v5), the new version v6 uses useNavigate
-// learn how to do that
+//after user signs up we want them to be logged in
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -19,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Signup = () => {
+//hand user login down from APP as a deconstructed prop
+const Signup = ({ userLogin }) => {
 
     const classes = useStyles();
     const [userName, setUserName] = useState('');
@@ -46,6 +47,7 @@ const Signup = () => {
         })
             .then(resp => resp.json())
             .then(data => {
+                userLogin(data) //setting the user login with the data from the fetch. Callback function handed down from APP. 
                 navigate('/petlist')
             }) //redirects to the petlist page after user signs up
     }

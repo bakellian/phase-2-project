@@ -11,16 +11,26 @@ import { useState } from 'react';
 
 const App = () => { //changed to arrow function to keep it up to date with ES6 best practices
   
+  const [user, setUser] = useState('{}'); //need state of user to live in the app since its the parent to all the component so we can have the user persist throughout the app. 
+  const [loggedIn, setLoggedIn] = useState(false);//also need to keep track if loggen in or not. set to false in beginning stages since no one will be logged in. 
+
+   //this takes the data that we get back from the FETCH
+  const userLogin = user => {
+    setUser(user); //sets the user
+    setLoggedIn(true); //set logged in to true 
+  }
+ 
 
   return (
     <Router>
       {/* Navbar is inside router so we will be able to use links */}
       <Navbar /> 
       {/* Router v Routes in React?? */}
+      { loggedIn ? <h1>Logged In!!!!!</h1> : null }
       <Routes>
         <Route path="/" element={ <HomePage /> } /> 
         {/* rendering homepage in the element */}
-        <Route path="/signup" element={ <Signup /> } />
+        <Route path="/signup" element={ <Signup  userLogin={ userLogin } /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/petlist" element={ <PetList /> } />
         <Route path="/petform" element={ <PetForm /> } />
