@@ -18,8 +18,21 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
   const userLogin = user => {
     setUser(user); //sets the user
     setLoggedIn(true); //set logged in to true 
-    localStorage.setItem('user_id', user.id); //setting cookie in the browser for the user_id so the logged in user can persist across the app. 
+    localStorage.setItem('user_id', user.id);
+    //setting cookie in the browser for the user_id so the logged in user can persist across the app. 
   }
+
+  // what is use effect and how does it work?
+  useEffect(() => {
+    const userId = localStorage.getItem('user_id'); //grabbing our logged in user id into a variable
+    // userId && !loggedIn
+    if(userId !== 'undefined' && !loggedIn) { //if user ID exists and were not logged in we need to log ourselves in. 
+      console.log('yo', userId)
+      fetch('http://localhost:3001/users/' + userId) 
+        .then(resp => resp.json())
+        .then(data => userLogin(data)) //this will update everything in userLogin function
+    }
+  }, [])
  
 
   return (
