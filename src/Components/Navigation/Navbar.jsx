@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) => ({ //when we call makeStyles it returns 
 const NavBar = () => {
 
     const classes = useStyles();  //calling useStyles and setting it to classes to use dot notation to change the styling 
+    const handleOnClick = e => {
+        console.log('logged out clicked')
+        localStorage.removeItem('user_id')
+    }
 
   return (
     <div className={classes.root}>
@@ -37,7 +41,7 @@ const NavBar = () => {
           <Button color="inherit" to='/login' component={ Link }>Login</Button>
           <Button color="inherit" to='/petlist' component={ Link }>Your Pets</Button>
           <Button color="inherit" to='/petform' component={ Link }>Create a Pet</Button>
-          <Button color="inherit">Logout</Button> 
+          <Button color="inherit" onClick={handleOnClick}>Logout</Button> 
           {/* logout won't actually link anywhere */}
         </Toolbar>
       </AppBar>

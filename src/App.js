@@ -6,7 +6,7 @@ import Signup from './Components/Auth/Signup';
 import Login from './Components/Auth/Login';
 import PetList from './Components/Pets/PetList';
 import PetForm from './Components/Pets/PetForm';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 //using Routes instead of switch 
 
 const App = () => { //changed to arrow function to keep it up to date with ES6 best practices
@@ -18,6 +18,7 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
   const userLogin = user => {
     setUser(user); //sets the user
     setLoggedIn(true); //set logged in to true 
+    localStorage.setItem('user_id', user.id); //setting cookie in the browser for the user_id so the logged in user can persist across the app. 
   }
  
 

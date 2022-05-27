@@ -7,6 +7,30 @@
     {
       "userName": "Bridget",
       "id": 2
+    },
+    {
+      "userName": "IAMAUSER",
+      "id": 3
+    },
+    {
+      "userName": "IAMAUSER",
+      "id": 4
+    },
+    {
+      "userName": "User Test",
+      "id": 5
+    },
+    {
+      "userName": "Does this work",
+      "id": 6
+    },
+    {
+      "userName": "123456",
+      "id": 7
+    },
+    {
+      "userName": "Test Local Storage",
+      "id": 8
     }
   ]
 }

@@ -29,7 +29,6 @@ const Signup = ({ userLogin }) => {
     const handleChange = (e) => {
         setUserName(e.target.value);
         console.log(userName)
-       
     };
 
     const handleSubmit = (e) => {
@@ -49,7 +48,7 @@ const Signup = ({ userLogin }) => {
             .then(data => {
                 userLogin(data) //setting the user login with the data from the fetch. Callback function handed down from APP. 
                 navigate('/petlist')
-            }) //redirects to the petlist page after user signs up
+            }) //redirects to the petlist page after user signs up 
     }
     
     return (
