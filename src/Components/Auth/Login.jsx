@@ -19,6 +19,7 @@ const Login = ({ userLogin }) => {
     const classes = useStyles();
     const [userName, setUserName] = useState('');
     const [users, setUsers] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -33,7 +34,10 @@ const Login = ({ userLogin }) => {
         if(user) {
             userLogin(user); //this is coming from APP. it will setCurrentUser, setLoggedIn to true and update local storage
             navigate('/petlist');
+        } else {
+            setErrorMessage('Please use a valid username')
         }
+        
         // find a user that matches the userName
 
     }
@@ -58,6 +62,7 @@ const Login = ({ userLogin }) => {
                 variant="filled"
                 />
             </form>
+        {errorMessage && <div className="error"> {errorMessage} </div>}
         <Button variant="contained" onClick={handleSubmit}>Log In</Button>
     </div>
   )

@@ -40,7 +40,6 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
         .then(data => userLogin(data)) //this will update everything in userLogin function
     }
   }, [])
- 
 
   return (
     <Router>
