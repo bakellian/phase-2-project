@@ -53,7 +53,7 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
         <Route path="/" element={ <HomePage /> } /> 
         {/* rendering homepage in the element */}
         <Route path="/signup" element={ <Signup  userLogin={ userLogin } /> } />
-        <Route path="/login" element={ <Login /> } />
+        <Route path="/login" element={ <Login userLogin={ userLogin } /> } />
         <Route path="/petlist" element={ <PetList /> } />
         <Route path="/petform" element={ <PetForm /> } />
       </Routes>

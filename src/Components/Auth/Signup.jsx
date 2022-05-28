@@ -27,8 +27,7 @@ const Signup = ({ userLogin }) => {
     const navigate = useNavigate();
     
     const handleChange = (e) => {
-        setUserName(e.target.value);
-        console.log(userName)
+        setUserName(e.target.value); // this stages the re-render. updates state and rerenders when user logs in
     };
 
     const handleSubmit = (e) => {
