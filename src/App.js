@@ -38,7 +38,8 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
   return (
     <Router>
       {/* Navbar is inside router so we will be able to use links */}
-      <Navbar /> 
+      {/* giving the nav bar the log in status */}
+      <Navbar loggedIn={ loggedIn }/> 
       {/* Router v Routes in React?? */}
       { loggedIn ? <h1>Logged In!!!!!</h1> : null }
       <Routes>
