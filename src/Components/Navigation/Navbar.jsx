@@ -20,15 +20,15 @@ const useStyles = makeStyles((theme) => ({ //when we call makeStyles it returns 
     },
   }));
 // handing down loggedin status from the app component
-const NavBar = ( {loggedIn }) => {
+const NavBar = ( {loggedIn, userLogout }) => {
 
     const classes = useStyles();  //calling useStyles and setting it to classes to use dot notation to change the styling 
 
     const loggedInNav = () => {
 
         const handleOnClick = e => {
-            console.log('logged out clicked')
-            localStorage.removeItem('user_id')
+            e.preventDefault();
+            userLogout();
         }
 
         return (

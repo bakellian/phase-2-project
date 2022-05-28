@@ -22,6 +22,13 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
     //setting cookie in the browser for the user_id so the logged in user can persist across the app. 
   }
 
+  const userLogout = user => {
+    setUser({}); //sets the user back to it's initial state
+    setLoggedIn(false); //set logged out to true 
+    localStorage.removeItem('user_id');
+    //setting cookie in the browser for the user_id so the logged in user can persist across the app. 
+  }
+
   // what is use effect and how does it work?
   useEffect(() => {
     const userId = localStorage.getItem('user_id'); //grabbing our logged in user id into a variable
@@ -39,7 +46,7 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
     <Router>
       {/* Navbar is inside router so we will be able to use links */}
       {/* giving the nav bar the log in status */}
-      <Navbar loggedIn={ loggedIn }/> 
+      <Navbar loggedIn={ loggedIn } userLogout={userLogout} /> 
       {/* Router v Routes in React?? */}
       { loggedIn ? <h1>Logged In!!!!!</h1> : null }
       <Routes>
