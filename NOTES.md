@@ -16,9 +16,9 @@
 * List your pets 
 
 ## Components
-* Signup 
-* Login
-* Navigation
+* [x] Signup 
+* [x] Login
+* [x] Navigation
 * Create a pet form 
 * Pet List - general pet information (name + short description)
 * Pet card - more information about pet (name, age, longer description) 

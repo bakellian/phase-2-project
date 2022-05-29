@@ -32,7 +32,7 @@ const Signup = ({ userLogin }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('submitted')
+        
         //we want to send out a fetch
         fetch('http://localhost:3001/users', {
             method: "POST",
