@@ -45,15 +45,15 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
     <Router>
       {/* Navbar is inside router so we will be able to use links */}
       {/* giving the nav bar the log in status */}
-      <Navbar loggedIn={ loggedIn } userLogout={userLogout} /> 
+      <Navbar loggedIn={ loggedIn } userLogout={userLogout} user={ user } /> 
       {/* Router v Routes in React?? */}
-      { loggedIn ? <h1>Logged In!!!!!</h1> : null }
+      { loggedIn ? <h3>logged in!</h3> : null }
       <Routes>
         <Route path="/" element={ <HomePage /> } /> 
         {/* rendering homepage in the element */}
         <Route path="/signup" element={ <Signup  userLogin={ userLogin } /> } />
         <Route path="/login" element={ <Login userLogin={ userLogin } /> } />
-        <Route path="/petlist" element={ <PetList /> } />
+        <Route path="/petlist" element={ <PetList user={ user } loggedIn={ loggedIn } /> } />
         <Route path="/petform" element={ <PetForm /> } />
       </Routes>
     </Router> 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -17,10 +18,15 @@ const PetForm = () => {
     const classes = useStyles();
     const [petName, setPetName] = useState('')
     const [petDescription, setPetDescription] = useState('')
+    const [pets, setPets] = useState({})
+    const navigate = useNavigate();
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        console.log('submitted')
+    const handleNameChange = e => {
+        setPetName(e.target.value);
+    }
+
+    const handleDescriptionChange = e => {
+        setPetDescription(e.target.value);
     }
 
   return (
@@ -31,18 +37,18 @@ const PetForm = () => {
                     id="pet-name"
                     label="Pet Name"
                     value={petName}
-                    // onChange={handleChange}
+                    onChange={handleNameChange}
                 variant="filled"
                 />
                 <TextField
                     id="pet-description"
                     label="Pet Description"
                     value={petDescription}
-                    // onChange={handleChange}
+                    onChange={handleDescriptionChange}
                 variant="filled"
                 />
             </form>
-        <Button variant="contained" onClick={handleSubmit}>Create Pet</Button>
+        <Button variant="contained">Create Pet</Button>
     </div>
   )
 }
