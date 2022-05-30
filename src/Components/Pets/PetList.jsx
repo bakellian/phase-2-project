@@ -10,15 +10,15 @@ const PetList = ({ user, loggedIn }) => {
   const navigate = useNavigate();
   //with use effect we will only have access to this page if we are logged in. 
   //if were not logged in 
-  useEffect(() => {}, [loggedIn])
-    if(!loggedIn) {
-      navigate('/login');
-    }
+  // useEffect(() => {}, [loggedIn])
+  //   if(!loggedIn) {
+  //     navigate('/login');
+  //   }
 
   return (
     <div >
       <h1>{user.userName}'s Pets</h1>
-      <Button variant="contained" to='/petform' component={ Link }>Create a New Pet</Button>
+      <Button variant="contained" to='/petlist/new' component={ Link }>Create a New Pet</Button>
     </div>
   )
 }

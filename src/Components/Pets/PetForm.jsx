@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,12 +14,19 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const PetForm = () => {
+const PetForm = ({ loggedIn, user }) => {
     const classes = useStyles();
     const [petName, setPetName] = useState('')
     const [petDescription, setPetDescription] = useState('')
+    const [petType, setPetType] = useState('')
     const [pets, setPets] = useState({})
-    const navigate = useNavigate();
+    const navigate = useNavigate(); //hook for being able to redirect to other routes 
+    
+    // useEffect(() => {
+    //     if(!loggedIn) {
+    //         navigate('/login')
+    //     }
+    // }, [loggedIn]) //not working - whenever page is refreshed were brought to login - even though we are logged in 
 
     const handleNameChange = e => {
         setPetName(e.target.value);
@@ -27,6 +34,10 @@ const PetForm = () => {
 
     const handleDescriptionChange = e => {
         setPetDescription(e.target.value);
+    }
+
+    const handlePetTypeChange = e => {
+        setPetType(e.target.value);
     }
 
   return (
@@ -45,6 +56,13 @@ const PetForm = () => {
                     label="Pet Description"
                     value={petDescription}
                     onChange={handleDescriptionChange}
+                variant="filled"
+                />
+                <TextField
+                    id="pet-type"
+                    label="Pet Type"
+                    value={petType}
+                    onChange={handlePetTypeChange}
                 variant="filled"
                 />
             </form>

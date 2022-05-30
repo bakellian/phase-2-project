@@ -34,7 +34,6 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
     const userId = localStorage.getItem('user_id'); //grabbing our logged in user id into a variable
     // userId && !loggedIn
     if(userId !== 'undefined' && !loggedIn) { //if user ID exists and were not logged in we need to log ourselves in. 
-      console.log('yo', userId)
       fetch('http://localhost:3001/users/' + userId) 
         .then(resp => resp.json())
         .then(data => userLogin(data)) //this will update everything in userLogin function
@@ -54,7 +53,7 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
         <Route path="/signup" element={ <Signup  userLogin={ userLogin } /> } />
         <Route path="/login" element={ <Login userLogin={ userLogin } /> } />
         <Route path="/petlist" element={ <PetList user={ user } loggedIn={ loggedIn } /> } />
-        <Route path="/petform" element={ <PetForm /> } />
+        <Route path="/petlist/new" element={ <PetForm loggedIn={ loggedIn } user={ user }/> } />
       </Routes>
     </Router> 
   );
