@@ -30,7 +30,12 @@ const PetForm = ({ loggedIn, user }) => {
         // if(!loggedIn) {
         //     navigate('/login')
         // }
-    }, [loggedIn]) //not working - whenever page is refreshed were brought to login - even though we are logged in 
+        if(loggedIn) {
+            setFormData({
+                ...formData, user_id: user.id
+            }) //setting the user ID to the created pet so it saves under that user
+        }
+    }, [user, loggedIn]) //not working - whenever page is refreshed were brought to login - even though we are logged in 
 
     // const handleChange = e => {
     //     setFormData({ 
