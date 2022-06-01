@@ -41,11 +41,11 @@
     ],
     "pets": [
         {
-            "id": 1, 
-            "user-id": 1
-            "name": Lily 
-            "animal type": Dog
-            "description": A cute dog whose farts smell terrible. 
+            "id": 
+            "user-id":
+            "name": 
+            "animal type":
+            "description":
         }
     ]
 }
