@@ -53,5 +53,33 @@
       "id": 13
     }
   ],
-  "pets": []
+  "pets": [
+    {
+      "formData": {
+        "user_id": 10,
+        "name": "Po",
+        "type": "Other",
+        "description": "I am a descrp"
+      },
+      "id": 1
+    },
+    {
+      "formData": {
+        "user_id": 10,
+        "name": "",
+        "type": "",
+        "description": ""
+      },
+      "id": 2
+    },
+    {
+      "formData": {
+        "user_id": 10,
+        "name": "bbbbb",
+        "type": "Other",
+        "description": "bvvvvvv"
+      },
+      "id": 3
+    }
+  ]
 }

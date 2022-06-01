@@ -21,10 +21,11 @@ const PetForm = ({ loggedIn, user }) => {
     const [formData, setFormData] = useState({
         user_id: 0,
         name: "",
-        type: "",
-        description: ""
+        type: "Dog",
+        description: "Enter your pet description"
     })
     const navigate = useNavigate(); //hook for being able to redirect to other routes 
+    const [errorMessage, setErrorMessage] = useState('');
     
     useEffect(() => {
         // if(!loggedIn) {
@@ -33,21 +34,27 @@ const PetForm = ({ loggedIn, user }) => {
         if(loggedIn) {
             setFormData({
                 ...formData, user_id: user.id
-            }) //setting the user ID to the created pet so it saves under that user
+            }) //setting the user ID to the created pet so it saves under that user. the use effect side effect will change our current user and update our pet's user ID
         }
     }, [user, loggedIn]) //not working - whenever page is refreshed were brought to login - even though we are logged in 
 
-    // const handleChange = e => {
-    //     setFormData({ 
-    //         [e.target.name]: e.target.name.value,
-    //         [e.target.description]: e.target.value,
-    //         [e.target.type]: e.target.value
-    //     })
-    // }
-
     const handleSubmit = e => {
         e.preventDefault();
-        alert('you submitted')
+
+        if(formData.name) {
+            fetch('http://localhost:3001/pets', {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ formData })
+            })
+                .then(r => r.json())
+                .then(data => console.log(data))
+        } else {
+            setErrorMessage('Please enter a pet name')
+        }
     }
 
   return (
@@ -61,6 +68,7 @@ const PetForm = ({ loggedIn, user }) => {
                     onChange={(e) => setFormData({...formData, name: e.target.value})} //copy everything into the new object were setting in state 
                     variant="filled"
                 />
+                {errorMessage && <div className="error"> {errorMessage} </div>}
                 <TextField
                     id="description"
                     label="pet description"
@@ -79,13 +87,6 @@ const PetForm = ({ loggedIn, user }) => {
                     <MenuItem value={"Cat"}>Cat</MenuItem>
                     <MenuItem value={"Other"}>Other</MenuItem>
                 </Select>
-                {/* <TextField
-                    id="type"
-                    label="pet type"
-                    value={formData.type}
-                    onChange={(e) => setFormData({...formData, type: e.target.value})}
-                    variant="filled"
-                /> */}
                 <Button variant="contained" onClick={handleSubmit}>Create Pet</Button>
             </form>
     </div>
