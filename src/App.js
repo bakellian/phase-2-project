@@ -23,6 +23,16 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
     //setting cookie in the browser for the user_id so the logged in user can persist across the app. 
   }
 
+  const fetchPets = (user) => {
+    //feth the pets when the user logs in
+    
+  }
+
+  const addPet = (pet) => {
+    //will add pet to the state 
+    setPets([...pets, pet])
+  }
+
   const userLogout = user => {
     setUser({}); //sets the user back to it's initial state
     setLoggedIn(false); //set logged out to true 
@@ -43,11 +53,16 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
             .then(resp => resp.json())
             .then(petsData => {
               console.log("pets data:", petsData)
-              const userPets = petsData.filter(petData => petData.user_id === user.id) //data.id is the users id on login
+              console.log("data id:", data.id, "user id:", userId)
+    
+              const userPets = petsData.filter(petData => {
+                console.log("petData:", petData)
+                return petData.petsData.user_id === parseInt(userId)
+              })
               setPets(userPets)
             }) 
             //a fetch within another fetch. Done asynch 
-        }) 
+          }) 
     }
   }, [])
 
@@ -63,8 +78,8 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
         {/* rendering homepage in the element */}
         <Route path="/signup" element={ <Signup  userLogin={ userLogin } /> } />
         <Route path="/login" element={ <Login userLogin={ userLogin } /> } />
-        <Route path="/petlist" element={ <PetList user={ user } loggedIn={ loggedIn } /> } />
-        <Route path="/petlist/new" element={ <PetForm loggedIn={ loggedIn } user={ user }/> } />
+        <Route path="/petlist" element={ <PetList user={ user } loggedIn={ loggedIn } pets={ pets } /> } />
+        <Route path="/petlist/new" element={ <PetForm loggedIn={ loggedIn } user={ user } addPet={ addPet } /> } />
       </Routes>
     </Router> 
   );

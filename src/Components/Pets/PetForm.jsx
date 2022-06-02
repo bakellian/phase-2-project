@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-const PetForm = ({ loggedIn, user }) => {
+const PetForm = ({ loggedIn, user, addPet }) => {
     const classes = useStyles();
     const [petsData, setPetsData] = useState({
         user_id: 0,
@@ -52,7 +52,9 @@ const PetForm = ({ loggedIn, user }) => {
             })
                 .then(r => r.json())
                 .then(data => {
-
+                    console.log("form data:", data)
+                    addPet(data);
+                    navigate("/petlist")
                 })
         } else {
             setErrorMessage('Please enter a pet name')

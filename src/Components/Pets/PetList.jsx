@@ -5,8 +5,8 @@ import Button from '@material-ui/core/Button';
 
 
 //each pet card will have a button that links into the detailed pet page
-
-const PetList = ({ user, loggedIn }) => {
+//passing in our pets state from app.js
+const PetList = ({ user, loggedIn, pets }) => {
   const navigate = useNavigate();
   //with use effect we will only have access to this page if we are logged in. 
   //if were not logged in 
@@ -19,6 +19,7 @@ const PetList = ({ user, loggedIn }) => {
     <div >
       <h1>{user.userName}'s Pets</h1>
       <Button variant="contained" to='/petlist/new' component={ Link }>Create a New Pet</Button>
+      {/* list out characters */}
     </div>
   )
 }
