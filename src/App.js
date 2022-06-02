@@ -21,6 +21,7 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
     setLoggedIn(true); //set logged in to true 
     localStorage.setItem('user_id', user.id);
     //setting cookie in the browser for the user_id so the logged in user can persist across the app. 
+    //figure out how to put character fetch in here from use effect below
   }
 
   const fetchPets = (user) => {

@@ -28,9 +28,9 @@ const PetForm = ({ loggedIn, user, addPet }) => {
     const [errorMessage, setErrorMessage] = useState('');
     
     useEffect(() => {
-        // if(!loggedIn) {
-        //     navigate('/login')
-        // }
+        if(!loggedIn) {
+            navigate('/login')
+        }
         if(loggedIn) {
             setPetsData({
                 ...petsData, user_id: user.id

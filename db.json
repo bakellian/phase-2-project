@@ -143,6 +143,15 @@
         "description": "should trigger"
       },
       "id": 14
+    },
+    {
+      "petsData": {
+        "user_id": 4,
+        "name": "It's Working?",
+        "type": "Cat",
+        "description": "hopefully this works!"
+      },
+      "id": 15
     }
   ]
 }
