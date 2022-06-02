@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PetForm = ({ loggedIn, user }) => {
     const classes = useStyles();
-    const [formData, setFormData] = useState({
+    const [petsData, setPetsData] = useState({
         user_id: 0,
         name: "",
         type: "Dog",
@@ -32,8 +32,8 @@ const PetForm = ({ loggedIn, user }) => {
         //     navigate('/login')
         // }
         if(loggedIn) {
-            setFormData({
-                ...formData, user_id: user.id
+            setPetsData({
+                ...petsData, user_id: user.id
             }) //setting the user ID to the created pet so it saves under that user. the use effect side effect will change our current user and update our pet's user ID
         }
     }, [user, loggedIn]) //not working - whenever page is refreshed were brought to login - even though we are logged in 
@@ -41,17 +41,19 @@ const PetForm = ({ loggedIn, user }) => {
     const handleSubmit = e => {
         e.preventDefault();
 
-        if(formData.name) {
+        if(petsData.name) {
             fetch('http://localhost:3001/pets', {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ formData })
+                body: JSON.stringify({ petsData })
             })
                 .then(r => r.json())
-                .then(data => console.log(data))
+                .then(data => {
+
+                })
         } else {
             setErrorMessage('Please enter a pet name')
         }
@@ -64,24 +66,24 @@ const PetForm = ({ loggedIn, user }) => {
                 <TextField
                     id="name"
                     label="pet name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})} //copy everything into the new object were setting in state 
+                    value={petsData.name}
+                    onChange={(e) => setPetsData({...petsData, name: e.target.value})} //copy everything into the new object were setting in state 
                     variant="filled"
                 />
                 {errorMessage && <div className="error"> {errorMessage} </div>}
                 <TextField
                     id="description"
                     label="pet description"
-                    value={formData.description}
-                    onChange={(e) => setFormData({...formData, description: e.target.value})}
+                    value={petsData.description}
+                    onChange={(e) => setPetsData({...petsData, description: e.target.value})}
                     variant="filled"
                 />
                  <Select
                     labelId="type"
                     id="type"
-                    value={formData.type}
+                    value={petsData.type}
                     label="type"
-                    onChange={(e) => setFormData({...formData, type: e.target.value})}
+                    onChange={(e) => setPetsData({...petsData, type: e.target.value})}
                 >
                     <MenuItem value={"Dog"}>Dog</MenuItem>
                     <MenuItem value={"Cat"}>Cat</MenuItem>

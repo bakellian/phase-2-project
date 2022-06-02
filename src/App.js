@@ -13,6 +13,7 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
   
   const [user, setUser] = useState('{}'); //need state of user to live in the app since its the parent to all the component so we can have the user persist throughout the app. 
   const [loggedIn, setLoggedIn] = useState(false);//also need to keep track if loggen in or not. set to false in beginning stages since no one will be logged in. 
+  const [pets, setPets] = useState([]);
 
    //this takes the data that we get back from the FETCH
   const userLogin = user => {
@@ -36,7 +37,17 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
     if(userId !== 'undefined' && !loggedIn) { //if user ID exists and were not logged in we need to log ourselves in. 
       fetch('http://localhost:3001/users/' + userId) 
         .then(resp => resp.json())
-        .then(data => userLogin(data)) //this will update everything in userLogin function
+        .then(data => {
+          userLogin(data) //this will update everything in userLogin function
+          fetch('http://localhost:3001/pets') //grabbing the logged in users pets
+            .then(resp => resp.json())
+            .then(petsData => {
+              console.log("pets data:", petsData)
+              const userPets = petsData.filter(petData => petData.user_id === user.id) //data.id is the users id on login
+              setPets(userPets)
+            }) 
+            //a fetch within another fetch. Done asynch 
+        }) 
     }
   }, [])
 
