@@ -10,10 +10,9 @@ import Typography from '@mui/material/Typography';
 
 // if type === dog have image show dog. 
 
-const PetCard = ({ pet, deletePet, }) => {
+const PetCard = ({ pet, deletePet, pets }) => {
     
     const handleDelete = () => {
-        //delete from back end using fetch request - with a DELETE request 
         fetch('http://localhost:3001/pets/' + pet.id, {
             method: "DELETE",
             headers: {
@@ -22,16 +21,8 @@ const PetCard = ({ pet, deletePet, }) => {
             },
         })
             .then(res => res.json())
-            .then(data => deletePet(pet)) //remove it from the front end - delete pet handed down from APP - we pass deletePet the clicked on pet we want to delete
+            .then(data => deletePet(pet))
         
-    }
-
-    const image = (pet) => {
-        if(pet.petsData.type === "dog") {
-            image="https://ggsc.s3.amazonaws.com/images/uploads/The_Science-Backed_Benefits_of_Being_a_Dog_Owner.jpg"
-        } else {
-            image="https://www.rd.com/wp-content/uploads/2018/07/tardigrade.jpg"
-        }
     }
 
     const card = (
