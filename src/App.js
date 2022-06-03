@@ -1,24 +1,22 @@
 import Navbar from './Components/Navigation/Navbar';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom' //alias to use "router" instead of "BrowserRouter"
-// in the new update "Switch" is now "Routes". Does exactly what switch does but more effective. and don't have to use "exact" prop anymore. Router does it automatically 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './Components/Static /HomePage';
 import Signup from './Components/Auth/Signup';
 import Login from './Components/Auth/Login';
 import PetList from './Components/Pets/PetList';
 import PetForm from './Components/Pets/PetForm';
 import { useState, useEffect } from 'react';
-//using Routes instead of switch 
 
-const App = () => { //changed to arrow function to keep it up to date with ES6 best practices
+
+const App = () => {
   
-  const [user, setUser] = useState('{}'); //need state of user to live in the app since its the parent to all the component so we can have the user persist throughout the app. 
-  const [loggedIn, setLoggedIn] = useState(false);//also need to keep track if loggen in or not. set to false in beginning stages since no one will be logged in. 
+  const [user, setUser] = useState('{}');
+  const [loggedIn, setLoggedIn] = useState(false);
   const [pets, setPets] = useState([]);
 
-   //this takes the data that we get back from the FETCH
   const userLogin = user => {
-    setUser(user); //sets the user
-    setLoggedIn(true); //set logged in to true 
+    setUser(user);
+    setLoggedIn(true);
     localStorage.setItem('user_id', user.id);
     //setting cookie in the browser for the user_id so the logged in user can persist across the app. 
     //figure out how to put character fetch in here from use effect below
@@ -29,44 +27,36 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
     
   }
 
+  const userLogout = user => {
+    setUser({}); 
+    setLoggedIn(false); 
+    localStorage.removeItem('user_id');
+  }
+
   const addPet = (pet) => {
-    //will add pet to the state 
     setPets([...pets, pet])
   }
 
-  const userLogout = user => {
-    setUser({}); //sets the user back to it's initial state
-    setLoggedIn(false); //set logged out to true 
-    localStorage.removeItem('user_id');
-    //setting cookie in the browser for the user_id so the logged in user can persist across the app. 
-  }
-
   const deletePet = (deletedPet) => {
-    setPets(pets.filter(pet => pet.id !== deletedPet.id)) //keep the pets whose id does not match the character id that we clicked on. 
+    setPets(pets.filter(pet => pet.id !== deletedPet.id))
   }
 
   // what is use effect and how does it work?
   useEffect(() => {
-    const userId = localStorage.getItem('user_id'); //grabbing our logged in user id into a variable
-    // userId && !loggedIn
-    if(userId !== 'undefined' && !loggedIn) { //if user ID exists and were not logged in we need to log ourselves in. 
+    const userId = localStorage.getItem('user_id');
+    if(userId !== 'undefined' && !loggedIn) {
       fetch('http://localhost:3001/users/' + userId) 
         .then(resp => resp.json())
         .then(data => {
-          userLogin(data) //this will update everything in userLogin function
-          fetch('http://localhost:3001/pets') //grabbing the logged in users pets
+          userLogin(data)
+          fetch('http://localhost:3001/pets') 
             .then(resp => resp.json())
             .then(petsData => {
-              console.log("pets data:", petsData)
-              console.log("data id:", data.id, "user id:", userId)
-    
               const userPets = petsData.filter(petData => {
-                console.log("petData:", petData)
                 return petData.petsData.user_id === parseInt(userId)
               })
               setPets(userPets)
             }) 
-            //a fetch within another fetch. Done asynch 
           }) 
     }
   }, [])
@@ -77,10 +67,8 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
       {/* giving the nav bar the log in status */}
       <Navbar loggedIn={ loggedIn } userLogout={userLogout} user={ user } /> 
       {/* Router v Routes in React?? */}
-      { loggedIn ? <h3>logged in!</h3> : null }
       <Routes>
         <Route path="/" element={ <HomePage /> } /> 
-        {/* rendering homepage in the element */}
         <Route path="/signup" element={ <Signup  userLogin={ userLogin } /> } />
         <Route path="/login" element={ <Login userLogin={ userLogin } /> } />
         <Route path="/petlist" element={ <PetList user={ user } loggedIn={ loggedIn } pets={ pets } deletePet={ deletePet } /> } />

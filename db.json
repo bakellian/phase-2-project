@@ -57,15 +57,6 @@
     {
       "petsData": {
         "user_id": 3,
-        "name": "bbbbbbb",
-        "type": "Other",
-        "description": "butthole"
-      },
-      "id": 5
-    },
-    {
-      "petsData": {
-        "user_id": 3,
         "name": "fuck",
         "type": "Dog",
         "description": "my butt"
@@ -134,6 +125,33 @@
         "description": "hopefully this works!"
       },
       "id": 15
+    },
+    {
+      "petsData": {
+        "user_id": 3,
+        "name": "food",
+        "type": "Other",
+        "description": "im hungry "
+      },
+      "id": 16
+    },
+    {
+      "petsData": {
+        "user_id": 3,
+        "name": "asdfasdf",
+        "type": "Dog",
+        "description": "Enter your asdfasdfasdfpet description"
+      },
+      "id": 17
+    },
+    {
+      "petsData": {
+        "user_id": 3,
+        "name": "asdfasdfasdf",
+        "type": "Cat",
+        "description": "Enter your pet description"
+      },
+      "id": 18
     }
   ]
 }

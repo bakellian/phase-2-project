@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import { CardActions } from '@mui/material';
 import { Button } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
+
 import Typography from '@mui/material/Typography';
 
 // if type === dog have image show dog. 
@@ -59,7 +60,12 @@ const PetCard = ({ pet, deletePet, }) => {
 );
 
   return (
-    <Box sx={{ minWidth: 275, maxWidth: 275 }}>
+    <Box sx={{ 
+        minWidth: 275, 
+        maxWidth: 275,
+        margin: 4,
+        flexGrow: 1,
+    }}>
       <Card variant="outlined">{card}</Card>
     </Box>
   )
