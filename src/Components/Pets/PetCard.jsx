@@ -25,12 +25,20 @@ const PetCard = ({ pet, deletePet, }) => {
         
     }
 
+    const image = (pet) => {
+        if(pet.petsData.type === "dog") {
+            image="https://ggsc.s3.amazonaws.com/images/uploads/The_Science-Backed_Benefits_of_Being_a_Dog_Owner.jpg"
+        } else {
+            image="https://www.rd.com/wp-content/uploads/2018/07/tardigrade.jpg"
+        }
+    }
+
     const card = (
         <React.Fragment> 
             <CardMedia
                 component="img"
                 height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
+                image="https://ggsc.s3.amazonaws.com/images/uploads/The_Science-Backed_Benefits_of_Being_a_Dog_Owner.jpg"
                 alt="green iguana"
             />
             <CardContent>
