@@ -23,13 +23,15 @@ console.log("pets:", pets)
 
 
   return (
-    <div style={{justifyContent:'center',  alignItems:'center'}}> 
-      <h1>{user.userName}'s Pets</h1>
-      <Button variant="contained" to='/petlist/new' component={ Link }>Create a New Pet</Button>
-      <div style={{display: 'flex', flexWrap:'wrap', justifyContent:'center', alignItems:'center', height: '100vh'}}> 
-       { petCards }
+    <React.Fragment>
+      <div style={{textAlign:'center'}}> 
+        <h1>{user.userName}'s Pets</h1>
+        <Button variant="contained" to='/petlist/new' component={ Link }>Create a New Pet</Button>
       </div>
-    </div>
+        <div style={{display: 'flex', flexWrap:'wrap', justifyContent:'center', alignItems:'center', height: '100vh'}}> 
+        { petCards }
+        </div>
+    </React.Fragment>
   )
 }
 

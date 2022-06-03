@@ -24,7 +24,7 @@ const PetForm = ({ loggedIn, user, addPet }) => {
         type: "Dog",
         description: "Enter your pet description"
     })
-    const navigate = useNavigate(); //hook for being able to redirect to other routes 
+    const navigate = useNavigate();
     const [errorMessage, setErrorMessage] = useState('');
     
     useEffect(() => {
@@ -34,13 +34,12 @@ const PetForm = ({ loggedIn, user, addPet }) => {
         if(loggedIn) {
             setPetsData({
                 ...petsData, user_id: user.id
-            }) //setting the user ID to the created pet so it saves under that user. the use effect side effect will change our current user and update our pet's user ID
+            })
         }
     }, [user, loggedIn]) //not working - whenever page is refreshed were brought to login - even though we are logged in 
 
     const handleSubmit = e => {
         e.preventDefault();
-
         if(petsData.name) {
             fetch('http://localhost:3001/pets', {
                 method: "POST",
@@ -52,7 +51,6 @@ const PetForm = ({ loggedIn, user, addPet }) => {
             })
                 .then(r => r.json())
                 .then(data => {
-                    console.log("form data:", data)
                     addPet(data);
                     navigate("/petlist")
                 })
@@ -62,14 +60,14 @@ const PetForm = ({ loggedIn, user, addPet }) => {
     }
 
   return (
-    <div>
+    <div style={{textAlign:'center'}}> 
         <h1>Create a Pet</h1>
             <form className={classes.root} >
                 <TextField
                     id="name"
                     label="pet name"
                     value={petsData.name}
-                    onChange={(e) => setPetsData({...petsData, name: e.target.value})} //copy everything into the new object were setting in state 
+                    onChange={(e) => setPetsData({...petsData, name: e.target.value})} 
                     variant="filled"
                 /><br />
                 {errorMessage && <div className="error"> {errorMessage} </div>}

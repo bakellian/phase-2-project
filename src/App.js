@@ -63,8 +63,6 @@ const App = () => {
 
   return (
     <Router>
-      {/* Navbar is inside router so we will be able to use links */}
-      {/* giving the nav bar the log in status */}
       <Navbar loggedIn={ loggedIn } userLogout={userLogout} user={ user } /> 
       {/* Router v Routes in React?? */}
       <Routes>
