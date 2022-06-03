@@ -7,7 +7,7 @@ import PetCard from './PetCard';
 
 //each pet card will have a button that links into the detailed pet page
 //passing in our pets state from app.js
-const PetList = ({ user, loggedIn, pets }) => {
+const PetList = ({ user, loggedIn, pets, deletePet }) => {
   const navigate = useNavigate();
   //with use effect we will only have access to this page if we are logged in. 
   //if were not logged in 
@@ -15,9 +15,10 @@ const PetList = ({ user, loggedIn, pets }) => {
   //   if(!loggedIn) {
   //     navigate('/login');
   //   }
-
+console.log("pets:", pets)
   //make a map for each pet to have its own card 
-  const petCards = pets.map(pet => <PetCard key={ pet.id } pet={ pet }/>)
+  const petCards = pets.map(pet => <PetCard key={ pet.id } pet={ pet } deletePet={ deletePet }/>)
+
 
   return (
     <div >

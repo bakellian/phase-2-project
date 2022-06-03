@@ -41,6 +41,10 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
     //setting cookie in the browser for the user_id so the logged in user can persist across the app. 
   }
 
+  const deletePet = (deletedPet) => {
+    setPets(pets.filter(pet => pet.id !== deletedPet.id)) //keep the pets whose id does not match the character id that we clicked on. 
+  }
+
   // what is use effect and how does it work?
   useEffect(() => {
     const userId = localStorage.getItem('user_id'); //grabbing our logged in user id into a variable
@@ -79,7 +83,7 @@ const App = () => { //changed to arrow function to keep it up to date with ES6 b
         {/* rendering homepage in the element */}
         <Route path="/signup" element={ <Signup  userLogin={ userLogin } /> } />
         <Route path="/login" element={ <Login userLogin={ userLogin } /> } />
-        <Route path="/petlist" element={ <PetList user={ user } loggedIn={ loggedIn } pets={ pets } /> } />
+        <Route path="/petlist" element={ <PetList user={ user } loggedIn={ loggedIn } pets={ pets } deletePet={ deletePet } /> } />
         <Route path="/petlist/new" element={ <PetForm loggedIn={ loggedIn } user={ user } addPet={ addPet } /> } />
       </Routes>
     </Router> 

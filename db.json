@@ -66,15 +66,6 @@
     {
       "petsData": {
         "user_id": 3,
-        "name": "vvvvvv",
-        "type": "Dog",
-        "description": "Enter your pet description"
-      },
-      "id": 6
-    },
-    {
-      "petsData": {
-        "user_id": 3,
         "name": "fuck",
         "type": "Dog",
         "description": "my butt"
@@ -98,15 +89,6 @@
         "description": "shes barking"
       },
       "id": 9
-    },
-    {
-      "petsData": {
-        "user_id": 3,
-        "name": "garbage",
-        "type": "Dog",
-        "description": "bag"
-      },
-      "id": 10
     },
     {
       "petsData": {

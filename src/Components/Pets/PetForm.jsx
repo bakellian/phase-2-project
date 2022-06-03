@@ -71,7 +71,7 @@ const PetForm = ({ loggedIn, user, addPet }) => {
                     value={petsData.name}
                     onChange={(e) => setPetsData({...petsData, name: e.target.value})} //copy everything into the new object were setting in state 
                     variant="filled"
-                />
+                /><br />
                 {errorMessage && <div className="error"> {errorMessage} </div>}
                 <TextField
                     id="description"
@@ -79,7 +79,7 @@ const PetForm = ({ loggedIn, user, addPet }) => {
                     value={petsData.description}
                     onChange={(e) => setPetsData({...petsData, description: e.target.value})}
                     variant="filled"
-                />
+                /><br />
                  <Select
                     labelId="type"
                     id="type"
@@ -90,7 +90,7 @@ const PetForm = ({ loggedIn, user, addPet }) => {
                     <MenuItem value={"Dog"}>Dog</MenuItem>
                     <MenuItem value={"Cat"}>Cat</MenuItem>
                     <MenuItem value={"Other"}>Other</MenuItem>
-                </Select>
+                </Select><br />
                 <Button variant="contained" onClick={handleSubmit}>Create Pet</Button>
             </form>
     </div>
