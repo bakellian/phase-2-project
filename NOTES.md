@@ -19,9 +19,9 @@
 * [x] Signup 
 * [x] Login
 * [x] Navigation
-* Create a pet form 
-* Pet List - general pet information (name + short description)
-* Pet card - more information about pet (name, age, longer description) 
+* [x]Create a pet form 
+* [x]Pet List 
+* [x]Pet card 
 
 ## Routes 
 * /home - homepage component
@@ -29,7 +29,6 @@
 * /login - login component 
 * /pets/new - new pet form component 
 * /pets - pet list 
-* /pet/id - individual pet card 
 
 ## JSON Data 
 {
