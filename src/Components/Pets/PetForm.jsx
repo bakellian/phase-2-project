@@ -36,7 +36,7 @@ const PetForm = ({ loggedIn, user, addPet }) => {
                 ...petsData, user_id: user.id
             })
         }
-    }, [user, loggedIn]) 
+    }, [user], [loggedIn]) 
 
     const handleSubmit = e => {
         e.preventDefault();
