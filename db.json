@@ -1,166 +1,28 @@
 {
   "users": [
     {
-      "userName": "Test123",
-      "id": 1
-    },
-    {
-      "userName": "AnotherTest",
-      "id": 2
-    },
-    {
-      "userName": "Dennis is kool",
-      "id": 3
-    },
-    {
-      "userName": "butthole",
-      "id": 4
+      "userName": "Bridget",
+      "id": 5
     }
   ],
   "pets": [
     {
       "petsData": {
-        "user_id": 1,
-        "name": "123",
+        "user_id": 5,
+        "name": "Lily",
         "type": "Dog",
-        "description": "456"
+        "description": "A farty dog"
       },
       "id": 1
     },
     {
       "petsData": {
-        "user_id": 1,
-        "name": "tests Pet",
+        "user_id": 5,
+        "name": "Norman",
         "type": "Dog",
-        "description": "only show once"
+        "description": "fluffy doggo"
       },
       "id": 2
-    },
-    {
-      "petsData": {
-        "user_id": 2,
-        "name": "This should have user id 2",
-        "type": "Cat",
-        "description": "Enter your pet description"
-      },
-      "id": 3
-    },
-    {
-      "petsData": {
-        "user_id": 2,
-        "name": "ttttt",
-        "type": "Dog",
-        "description": "vvvvvv"
-      },
-      "id": 4
-    },
-    {
-      "petsData": {
-        "user_id": 3,
-        "name": "fuck",
-        "type": "Dog",
-        "description": "my butt"
-      },
-      "id": 7
-    },
-    {
-      "petsData": {
-        "user_id": 3,
-        "name": "fuck",
-        "type": "Dog",
-        "description": "my butt"
-      },
-      "id": 8
-    },
-    {
-      "petsData": {
-        "user_id": 3,
-        "name": "lilyyyyyyyy",
-        "type": "Dog",
-        "description": "shes barking"
-      },
-      "id": 9
-    },
-    {
-      "petsData": {
-        "user_id": 2,
-        "name": "oooooo",
-        "type": "Dog",
-        "description": "OOOOOOO"
-      },
-      "id": 11
-    },
-    {
-      "petsData": {
-        "user_id": 4,
-        "name": "Butthole",
-        "type": "Dog",
-        "description": "Butthole pet"
-      },
-      "id": 12
-    },
-    {
-      "petsData": {
-        "user_id": 4,
-        "name": "state",
-        "type": "Dog",
-        "description": "Enter your pet description"
-      },
-      "id": 13
-    },
-    {
-      "petsData": {
-        "user_id": 4,
-        "name": "hi",
-        "type": "Dog",
-        "description": "should trigger"
-      },
-      "id": 14
-    },
-    {
-      "petsData": {
-        "user_id": 4,
-        "name": "It's Working?",
-        "type": "Cat",
-        "description": "hopefully this works!"
-      },
-      "id": 15
-    },
-    {
-      "petsData": {
-        "user_id": 3,
-        "name": "food",
-        "type": "Other",
-        "description": "im hungry "
-      },
-      "id": 16
-    },
-    {
-      "petsData": {
-        "user_id": 3,
-        "name": "asdfasdf",
-        "type": "Dog",
-        "description": "Enter your asdfasdfasdfpet description"
-      },
-      "id": 17
-    },
-    {
-      "petsData": {
-        "user_id": 3,
-        "name": "asdfasdfasdf",
-        "type": "Cat",
-        "description": "Enter your pet description"
-      },
-      "id": 18
-    },
-    {
-      "petsData": {
-        "user_id": 3,
-        "name": "Bridget",
-        "type": "Dog",
-        "description": "dfgsdfgsdfg"
-      },
-      "id": 19
     }
   ]
 }

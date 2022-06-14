@@ -8,8 +8,6 @@ import CardMedia from '@mui/material/CardMedia';
 
 import Typography from '@mui/material/Typography';
 
-// if type === dog have image show dog. 
-
 const PetCard = ({ pet, deletePet, pets }) => {
     
     const handleDelete = () => {

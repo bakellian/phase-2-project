@@ -10,3 +10,7 @@ On this app users are able to create pets for a collection. Users can Signup to 
 * Begind making pets with the pet creator
 * View your pets
 * If you no longer want a pet you can delete it
+
+### DEV
+db watch: `json-server --port 3001 --watch db.json`
+dev server: `yarn start`
