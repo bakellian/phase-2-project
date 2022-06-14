@@ -27,27 +27,20 @@ const Login = ({ userLogin }) => {
     };
 
     const handleSubmit = (e) => {
-        //want to have all users available on component load to see what people can log in with (useEddeft)
-        //then on submote we want to go through our users and find the users 
         e.preventDefault();
         const user = users.find(user => user.userName.toLowerCase() === userName.toLowerCase())
         if(user) {
-            userLogin(user); //this is coming from APP. it will setCurrentUser, setLoggedIn to true and update local storage
+            userLogin(user); 
             navigate('/petlist');
         } else {
             setErrorMessage('Please use a valid username')
         }
-        
-        // find a user that matches the userName
-
     }
 
     useEffect(() => {
-        //fetch our users. set users to our data so app knows what can be used to login
         fetch('http://localhost:3001/users')
         .then(r => r.json())
         .then(data => setUsers(data))
-        //now if you check the state in this component you can see all the users
     }, [])
 
   return (

@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-//hand user login down from APP as a deconstructed prop
 const Signup = ({ userLogin }) => {
 
     const classes = useStyles();
@@ -27,13 +26,11 @@ const Signup = ({ userLogin }) => {
     const navigate = useNavigate();
     
     const handleChange = (e) => {
-        setUserName(e.target.value); // this stages the re-render. updates state and rerenders when user logs in
+        setUserName(e.target.value);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        //we want to send out a fetch
         fetch('http://localhost:3001/users', {
             method: "POST",
             headers: {
@@ -41,13 +38,12 @@ const Signup = ({ userLogin }) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ userName })
-            //send an object of username to our server - automatically gives it an ID
         })
             .then(resp => resp.json())
             .then(data => {
-                userLogin(data) //setting the user login with the data from the fetch. Callback function handed down from APP. 
+                userLogin(data)
                 navigate('/petlist')
-            }) //redirects to the petlist page after user signs up 
+            })
     }
     
     return (
@@ -59,7 +55,6 @@ const Signup = ({ userLogin }) => {
                     label="Username"
                     value={userName}
                     onChange={handleChange}
-                    //anytime we make an input change its going to use the handleCHange function
                 variant="filled"
                 />
             </form>
