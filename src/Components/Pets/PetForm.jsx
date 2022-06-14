@@ -36,7 +36,7 @@ const PetForm = ({ loggedIn, user, addPet }) => {
                 ...petsData, user_id: user.id
             })
         }
-    }, [user, loggedIn]) //not working - whenever page is refreshed were brought to login - even though we are logged in 
+    }, [user, loggedIn]) 
 
     const handleSubmit = e => {
         e.preventDefault();
