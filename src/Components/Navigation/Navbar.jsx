@@ -5,6 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({ 
     root: {
@@ -18,11 +19,13 @@ const useStyles = makeStyles((theme) => ({
 const NavBar = ( {loggedIn, userLogout, user }) => {
 
     const classes = useStyles();
+    const navigate = useNavigate();
 
     const loggedInNav = () => {
         const handleOnClick = e => {
             e.preventDefault();
             userLogout();
+            navigate('/login');
         }
         return (
             <div className={classes.root}>

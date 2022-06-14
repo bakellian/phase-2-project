@@ -18,15 +18,8 @@ const App = () => {
     setUser(user);
     setLoggedIn(true);
     localStorage.setItem('user_id', user.id);
-    //setting cookie in the browser for the user_id so the logged in user can persist across the app. 
-    //figure out how to put character fetch in here from use effect below
   }
-
-  const fetchPets = (user) => {
-    //feth the pets when the user logs in
-    
-  }
-
+  
   const userLogout = user => {
     setUser({}); 
     setLoggedIn(false); 
@@ -41,7 +34,6 @@ const App = () => {
     setPets(pets.filter(pet => pet.id !== deletedPet.id))
   }
 
-  // what is use effect and how does it work?
   useEffect(() => {
     const userId = localStorage.getItem('user_id');
     if(userId !== 'undefined' && !loggedIn) {
