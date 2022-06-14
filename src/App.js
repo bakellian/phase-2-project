@@ -19,7 +19,7 @@ const App = () => {
     setLoggedIn(true);
     localStorage.setItem('user_id', user.id);
   }
-  
+
   const userLogout = user => {
     setUser({}); 
     setLoggedIn(false); 
@@ -56,7 +56,6 @@ const App = () => {
   return (
     <Router>
       <Navbar loggedIn={ loggedIn } userLogout={userLogout} user={ user } /> 
-      {/* Router v Routes in React?? */}
       <Routes>
         <Route path="/" element={ <HomePage /> } /> 
         <Route path="/signup" element={ <Signup  userLogin={ userLogin } /> } />
