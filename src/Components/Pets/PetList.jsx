@@ -1,11 +1,9 @@
 import React from 'react'
-import { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import PetCard from './PetCard';
 
 const PetList = ({ user, pets, deletePet }) => {
-  const navigate = useNavigate();
   
   const petCards = pets.map(pet => <PetCard key={ pet.id } pet={ pet } deletePet={ deletePet } pets={ pets }/>)
 
